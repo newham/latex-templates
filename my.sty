@@ -67,3 +67,6 @@ Fig.~\ref{#1}
 
 % 修改标注
 \newcommand{\changed}[3][red]{{\color{#1}{#2}} {\color{blue}{[Q#3]}}}
+
+% *MDPI独有，去掉默认的[行号]
+\preto{\abstractkeywords}{\nolinenumbers}
