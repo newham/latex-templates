@@ -1,5 +1,6 @@
 /.*
 !.gitignore
+!.vscode
 *.log
 *.aux
 *.fdb_latexmk

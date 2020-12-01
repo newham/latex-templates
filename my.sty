@@ -1,0 +1,69 @@
+% ######### 描述 #########
+\def\RCSfile{han}%
+\def\RCSversion{0.1}%
+\def\RCSdate{2020/08/04}%
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+
+% ######### 自定义引用 #########
+\usepackage{ulem} % 划线
+\usepackage{amsmath,amssymb,amsfonts} % 公式字体
+\usepackage{algorithm,algorithmic} % 公式表
+\usepackage{graphicx} % 插图
+
+% ######### 自定义格式 #########
+\renewcommand{\algorithmicrequire}{ \textbf{Input:}} %Use Input in the format of Algorithm
+\renewcommand{\algorithmicensure}{ \textbf{Output:}} %UseOutput in the format of Algorithm
+
+% ######### 自定义命令 #########
+% \newcommand\cmd[参数个数][参数的默认值]{命令的定义}
+% 图
+% [htb]表示位置，h当前位置，t顶部，b自动
+\newcommand{\fig}[4][3.3in]{
+  \begin{figure}[htb]
+    \centering
+      \includegraphics[width=#1]{#2}
+    \caption{#3}
+    \label{#4}
+  \end{figure}
+}
+\newcommand{\reffig}[1]{
+Fig.~\ref{#1}
+}
+% 方程式
+\newcommand{\equa}[1]{
+  \begin{equation}
+    #1
+  \end{equation}
+}
+% 公式
+\newcommand{\algor}[5]{
+\begin{algorithm}[htb] 
+\caption{#1} %标题
+\label{algor#2} %标签，algor[n]来引用
+\begin{algorithmic}[1] %这个1 表示每一行都显示数字
+\REQUIRE #3\\ %算法的输入参数：Input
+\ENSURE #4\\ %算法的输出：Output
+#5 %算法体
+\end{algorithmic}
+\end{algorithm}
+}
+
+% 表格
+\newcommand{\tbl}[6][0.9]{
+    \begin{table}[width=#1\linewidth,cols=4,pos=htb]
+        \caption{#2}\label{#3}
+        \begin{tabular*}{\tblwidth}{@{} #4@{} }
+        \toprule
+        #5\\
+        \midrule
+        #6
+        \bottomrule
+        \end{tabular*}
+    \end{table}
+}
+
+% 行内换行{对齐方式}{文字1\\文字2}
+\newcommand{\tabincell}[2][l]{\begin{tabular}{@{}#1@{}}#2\end{tabular}} 
+
+% 修改标注
+\newcommand{\changed}[3][red]{{\color{#1}{#2}} {\color{blue}{[Q#3]}}}
